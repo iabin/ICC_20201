@@ -1,0 +1,20 @@
+<VirtualHost *:80>
+
+        #ServerName www.example.com
+
+
+        ServerAdmin webmaster@localhost
+        DocumentRoot /home/ubuntu/laboratorio-redes_313033414/
+
+        <Directory /home/ubuntu/laboratorio-redes_313033414/>
+          Options None
+          AllowOverride None
+          Require all granted
+        </Directory>
+
+        #Logs de apache
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+
+</VirtualHost>
