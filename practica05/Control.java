@@ -13,7 +13,6 @@ public class Control{
     }
     
     public static void problema3(int[] arreglo){
-        Arrays.sort(arreglo);
         return;
     }
     
