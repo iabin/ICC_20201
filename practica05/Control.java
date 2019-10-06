@@ -37,10 +37,7 @@ public class Control{
         int[] primos10 = {2,3,5,7};
         if(problema1("oso")==true && problema1("palabra")==false)resultado+="P1 bien\n";else resultado+="P1 mal\n";
         if(problema2(desordenado, 17)==true) resultado+="P2 bien\n";else resultado+="P2 mal\n";
-        System.out.println(Arrays.toString(desordenado));
         problema3(desordenado);
-        System.out.println(Arrays.toString(desordenado));
-        System.out.println(desordenado.equals(ordenado));
         if(Arrays.equals(desordenado,ordenado) == true)resultado+="P3 bien\n";else resultado+="P3 mal\n";
         if(problema4(desordenado,2)== true && problema4(desordenado,18)== false)resultado+="P4 bien\n";else resultado+="P4 mal\n";
         if(problema5(7)==true && problema5(6)==false)resultado+="P5 bien\n";else resultado+="P5 mal\n";
