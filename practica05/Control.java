@@ -21,11 +21,14 @@ public class Control{
     }
 
     public static boolean problema5(int n){
+        if(n == 1) return false;
+        for(int i = 2; i<n;i++){
+            if(n%i==0)return false;
+        }
         return true;
     }
     
-    public static int[] problema6(int n){
-        return new int[10];
+    public static int[] problema6(int n){        
     }
 
 
