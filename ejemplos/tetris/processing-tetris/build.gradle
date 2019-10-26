@@ -1,0 +1,10 @@
+plugins {
+	id 'java'
+	id 'application'
+}
+
+mainClassName = 'Tetris'
+
+dependencies {
+	implementation fileTree(dir: 'lib', include: ['*.jar'])
+}

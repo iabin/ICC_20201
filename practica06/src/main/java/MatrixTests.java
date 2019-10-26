@@ -21,6 +21,17 @@ public class MatrixTests{
         System.out.println("equals failed");
     }
 
+    public static int fibb(int n){
+        if(n==0)return 1;
+        if(n==1)return 1;
+        return fibb(n-1)+fibb(n-2);
+    }
+
+    public static int fac(int n){
+        if(n == 1)return 1;
+        return fac(n-1)*n;
+    }
+
     public static void main(String[] args) {
         scalarProduct_test();
         add_test();
@@ -29,5 +40,8 @@ public class MatrixTests{
         getElement_test();
         determinant_test();
         equals_test();
+        int m[][] = new int[8][8];
+       System.out.println(fac(15));
+
     }
 }
