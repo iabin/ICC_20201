@@ -1,12 +1,15 @@
 package chess;
-import chess.items.Position;
+import chess.items.Board;
 import chess.pieces.ColorEnum;
+import chess.pieces.Piece;
 import chess.pieces.chessPieces.Rook;
-
+import chess.items.*;
 public class Game{
 
     public static void main(String[] args) {
-        Rook t = new Rook(new Position(4, 4),ColorEnum.BLACK);
-        System.out.println(t.getLegalMoves());
+        Board board = Board.getInstance();
+        System.out.println(board.toString());
+        Piece p = new Rook(new Position(0,0), ColorEnum.BLACK);
+        System.out.println(p.getLegalMoves());
     }
 }
