@@ -1,6 +1,7 @@
 package gui;
 import chess.items.Board;
 import chess.items.Position;
+import chess.pieces.ColorEnum;
 import chess.pieces.Piece;
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -9,6 +10,7 @@ public class ChessGUI extends PApplet{
     int PIXEL_SIZE = 50;
     Board board = Board.getInstance();
     PImage black_rook;
+    PImage white_rook;
     public static void main(String[] args) {
         PApplet.main("gui.ChessGUI");
     }
@@ -22,6 +24,7 @@ public class ChessGUI extends PApplet{
     public void setup(){
         System.out.println(board.toString());
         black_rook = loadImage(getClass().getResource("/black-rook-50.png").getPath());
+        white_rook = loadImage(getClass().getResource("/white-rook-50.png").getPath());
     }
 
     @Override
@@ -52,7 +55,10 @@ public class ChessGUI extends PApplet{
         int y = p.getPosition().getY();
         switch (p.getType()) {
             case ROOK:
-                image(black_rook,x,y);
+                if(p.getColor() == ColorEnum.WHITE)
+                    image(white_rook,x*PIXEL_SIZE,y*PIXEL_SIZE);
+                if(p.getColor() == ColorEnum.BLACK)
+                    image(black_rook,x*PIXEL_SIZE,y*PIXEL_SIZE);
                 break;
             case EMPTY:
                 break;
