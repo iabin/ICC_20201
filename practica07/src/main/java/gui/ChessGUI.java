@@ -55,9 +55,9 @@ public class ChessGUI extends PApplet{
         int y = p.getPosition().getY();
         switch (p.getType()) {
             case ROOK:
-                if(p.getColor() == ColorEnum.WHITE)
+                if(p.getColor().equals(ColorEnum.WHITE))
                     image(white_rook,x*PIXEL_SIZE,y*PIXEL_SIZE);
-                if(p.getColor() == ColorEnum.BLACK)
+                if(p.getColor().equals(ColorEnum.BLACK))
                     image(black_rook,x*PIXEL_SIZE,y*PIXEL_SIZE);
                 break;
             case EMPTY:
