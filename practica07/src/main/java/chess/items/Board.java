@@ -15,8 +15,8 @@ public class Board{
                 this.matrix[i][j] = new Empty(new Position(i, j), ColorEnum.NONE);
             }
         }
-        this.matrix[0][0] = new Rook(new Position(0, 0), ColorEnum.BLACK);
         this.matrix[4][0] = new Rook(new Position(4, 0), ColorEnum.BLACK);
+        this.matrix[7][0] = new Rook(new Position(7, 0), ColorEnum.BLACK);
     }
 
     public static Board getInstance(){
@@ -25,6 +25,9 @@ public class Board{
         return instance;
     }
 
+    public int getSize(){
+        return this.SIZE;
+    }
     public Piece getPiece(Position p){
         //if(p.isOutOfBoard(SIZE))return null;
         return this.matrix[p.getX()][p.getY()];

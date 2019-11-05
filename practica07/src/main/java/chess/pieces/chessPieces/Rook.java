@@ -12,8 +12,8 @@ public class Rook extends Piece {
     public Rook(Position p, ColorEnum color) {
         super(p,color);
         this.type = PiecesTypeEnum.ROOK;
-        
     }
+
 
     
     public List<Position> getLegalMoves() {
@@ -22,9 +22,8 @@ public class Rook extends Piece {
             this.legalMoves = new LinkedList<Position>();
             for(int i = this.position.getX()+1;i < 8; i++){
                 Position nextLegalPosition = new Position(i, this.position.getY());
-                Piece piece = board.getPiece(nextLegalPosition);
-                if(piece.getColor() == this.getColor())break;
-                if(piece.getColor() != ColorEnum.NONE){
+                if (this.isAppendable(nextLegalPosition) == -1)break;
+                if (this.isAppendable(nextLegalPosition) == 0){
                     this.legalMoves.add(nextLegalPosition);
                     break;
                 }

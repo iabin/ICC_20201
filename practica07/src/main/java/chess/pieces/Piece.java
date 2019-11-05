@@ -7,13 +7,21 @@ public abstract class Piece{
     protected List<Position> legalMoves = null;
     protected PiecesTypeEnum type;
     protected ColorEnum color;
-    //protected Board board;// = Board.getInstance();
+    protected Board board;
 
     public Piece(Position p, ColorEnum color) {
         this.position = p;
         this.color = color;
     }
 
+    public int isAppendable(Position p){
+        Board board = Board.getInstance();
+        Piece piece = board.getPiece(p);
+        if(piece.getColor() == this.getColor())return -1;
+        if(piece.getColor() != ColorEnum.NONE)return 0;
+        return 1;
+    }
+    
     public Position getPosition(){
         return this.position;
     }
@@ -21,6 +29,9 @@ public abstract class Piece{
         return this.color;
     }
 
+    public PiecesTypeEnum getType(){
+        return this.type;
+    }
     public void moveTo(Position p) {
         if (isLegalMove(p)) {
             this.position = p;
