@@ -17,6 +17,7 @@ public class Board{
         }
         this.matrix[4][0] = new Rook(new Position(4, 0), ColorEnum.WHITE);
         this.matrix[7][0] = new Rook(new Position(7, 0), ColorEnum.BLACK);
+        this.matrix[4][4] = new Rook(new Position(4, 4), ColorEnum.BLACK);
     }
 
     public static Board getInstance(){

@@ -1,4 +1,7 @@
 package gui;
+import java.util.LinkedList;
+import java.util.List;
+
 import chess.items.Board;
 import chess.items.Position;
 import chess.pieces.ColorEnum;
@@ -7,7 +10,10 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class ChessGUI extends PApplet{
+    Piece selected = null;
+    boolean isSelected = false;
     int PIXEL_SIZE = 50;
+    List<Position> legalMoves = new LinkedList<>();
     Board board = Board.getInstance();
     PImage black_rook;
     PImage white_rook;
@@ -22,7 +28,8 @@ public class ChessGUI extends PApplet{
 
     @Override
     public void setup(){
-        System.out.println(board.toString());
+        //legalMoves = board.getPiece(new Position(4,4)).getLegalMoves();
+        System.out.println(board.getPiece(new Position(4,4)).getLegalMoves());
         black_rook = loadImage(getClass().getResource("/black-rook-50.png").getPath());
         white_rook = loadImage(getClass().getResource("/white-rook-50.png").getPath());
     }
@@ -30,7 +37,17 @@ public class ChessGUI extends PApplet{
     @Override
     public void draw(){
         drawBoard();
-        
+        drawPosibleMoves();
+    }
+    public void drawPosibleMoves(){
+        stroke(255,0,0);
+        fill(0,0,0,100);
+        for(Position g:legalMoves){
+            int x = g.getX();
+            int y = g.getY();
+            rect(x*PIXEL_SIZE,y*PIXEL_SIZE,PIXEL_SIZE,PIXEL_SIZE);
+        }
+        stroke(0,0,0);
     }
 
     public void drawBoard(){
@@ -65,6 +82,26 @@ public class ChessGUI extends PApplet{
             default:
                 break;
         }
+    }
+
+    @Override
+    public void mouseClicked(){
+        int x = mouseX/PIXEL_SIZE;
+        int y = mouseY/PIXEL_SIZE;
+        Piece p = board.getPiece(new Position(x,y));
+        this.legalMoves = p.getLegalMoves();
+        if(selected==null){
+            selected = p;
+            return;
+        }else {
+            //this.selected.moveTo(new Position(x, y));
+            selected = null;
+        }
+
+
+        
+        System.out.println(x);
+        System.out.println(y);
     }
 
 }
