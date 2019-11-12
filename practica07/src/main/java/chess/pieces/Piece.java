@@ -14,6 +14,7 @@ public abstract class Piece{
         this.color = color;
     }
 
+
     public int isAppendable(Position p){
         Board board = Board.getInstance();
         Piece piece = board.getPiece(p);
@@ -53,6 +54,11 @@ public abstract class Piece{
     }
 
     @Override
-    public abstract boolean equals(Object obj);
-
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Piece))return false;
+        Piece p = (Piece)obj;
+        if(p.getType().equals(this.type) && p.getColor().equals(this.getColor()) && p.getPosition().equals(this.position))
+        return true;
+        return false;
+    }
 }

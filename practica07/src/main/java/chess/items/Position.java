@@ -15,6 +15,9 @@ public class Position{
         return x;
     }
 
+    public boolean isLegal(){
+        return (this.x < 8 && this.x > -1 && this.y < 8 && this.y > -1 )? true: false;
+    }
     /**
      * @return the y
      */
